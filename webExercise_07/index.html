@@ -1,0 +1,29 @@
+
+<!--The following four lines structure the format of what we see on the html page -->
+<input type="text" id="txt-price" placeholder="Enter the price of the item"> <!--Collects user input (price), defines the id to be referenced later in the program, displays a placeholder in the input box-->
+<input type="text" id="txt-quantity" placeholder="Enter the quanity of the item"> <!--Collects user input (quantity), defines the id to be referenced later in the program, displays a placeholder in the input box-->
+<button id="btn-submit">Calculate</button> <!--Creates a Calculate button and variable to be referenced in the script-->
+<div id="output"></div> <!--Creates the output line where the result of the calculation is presented. The id is created to be used in the script-->
+
+<script>  /* The script performs the functionality of the interactions and creates the output */
+  /* Lines 10-13 define variables (to be used in the script) that were taken from user input by using the getElementByID to identify references to the id's created in lines 3-6*/
+  var priceInput = document.getElementById('txt-price'); 
+  var quantityInput = document.getElementById('txt-quantity');
+  var submitBtn = document.getElementById('btn-submit');
+  var output = document.getElementById('output');
+
+  /* The following function defines what happens when a user clicks the "Calculate" button by using an addEventListener.  The addEventListener gives functionality to the "Calculate" button by listeneing for a user to press it and then reacting by completeing the method defined in the following lines.*/
+  submitBtn.addEventListener('click', function () {
+    var price = priceInput.value; /* define price as priceInput from line 10 */
+    var quanity = quantityInput.value; /* define quantity as quantityInput from line 11 */
+    price = +price;
+    quanity = +quanity;
+    if (Number.isNaN(price) || Number.isNaN(quanity)) {  /* boolean methods to determine if input is a number, if false it will return 'Invalid input'*/
+      output.innerHTML = 'Invalid input';
+      return;
+    }
+    var totalPrice = price * quanity; /* Calculates total */
+    totalPrice = Math.round(totalPrice * 100) / 100; /* Format total */  
+    output.innerHTML = quanity + ' items at $' + price + ' each is $' + totalPrice; /* Formatting for output */
+  });
+</script> <!--End script-->
