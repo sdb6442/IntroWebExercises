@@ -1,0 +1,18 @@
+/* The following website was used for learning about CSS https://www.w3schools.com/css/css_font.asp to complete this exercise */
+/* Additionally, ChatGBT was consulted */
+
+/* Styling for the entire body */
+body {
+    font-family: 'Georgia', serif; /* Different font from the default */
+    background-color: #d89797;    
+}
+
+/* Styling the main title ID */
+#main-title {
+    text-align: center;               /* Centering the text */
+}
+
+/* Styling the content class */
+.content {
+    margin-bottom: 12px;              /* Applying a bottom margin of 12px */
+}
